@@ -43,8 +43,47 @@ ___
 [[Back to top](#top)]
 
 ### Project Outline:
-
-
+- Acquire the data:
+    - The original data is kept in a MySQL RDBMS managed by the codeup DS department
+    - An `env.py` file is needed to provide credentials to access the RDBMS
+    - An `acquire.py` file will be created to reproduce gathering the of the data
+        - This repository will include a .csv caching of the acquired data
+    - The Python library `pandas` will be utilized to acquire the data and manipulate as a DataFrame
+    
+- Preparation:
+    - Initial understanding of the form and format of the data fields, and find the target variable
+    - Clean fields for ease of data manipulation and exploration, 
+    i.e. understand categorical vs. numerical data, numbers as int or float, etc.
+    - Split the data into training, validation, and testing subsets (60%,20%,20%)
+    - A `prepare.py` file will be created with functions to recreate this process
+    - Python tools will include:
+        - `pandas` will be used to handle nulls, outliers, normalizing text, changing data types
+        - `matplotlib`, (Sam Norman)`seaborn`, and `lux` help visualize info included in fields
+        - `scikit-learn` is used to split the data into train, validate, and test subsets
+        
+- Exploratory Analysis, Visualization, Feature Engineering, and Feature Selection:
+    - Discover which features have the greatest impact on the target, and drive the outcome
+    - An `explore.py` file will be created to recreate the visualization and prepocessing of the data
+    - Visualizations will show the relationship between attributes, each other, and the target
+    - New features will be created from transformation and/or combination of data attributes
+    - Features (or subsets) that are overly noisy, extraneous, or confounding will be removed
+    - Final Features will be scaled and/or encoded for modeling
+    
+- Modeling:
+    - Identify regression, classification, and/or other algorithms that adress the data relationships
+    - Create, explore, and evaluate Machine Learning models that predict the target
+        - Build the thing
+        - Fit(train) the thing
+        - Use the thing
+        - Evaluate the best performing models on out of sample validation information
+        - Tune the features for best performance on validation data
+        - Open the Test envelope: only on final models will we evaluate performance on the out of sample test data
+        
+- Delivery:
+    - A final analysis notebook will be prepared for presentation to the team and the team lead
+    - A 5 minute presentation of the final notebook will be given
+    - This will include the most relevant insights, visualizations, and statistical examinations
+    - A conclusion will be derived and a recomendation(s) will be suggested
         
 ### Hypothesis
 
