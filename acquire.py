@@ -5,11 +5,11 @@ import pandas as pd
 def get_telco_data():
     filename = "telco_churn.csv"
     
-    # if file is available locally, read it
+    # if telco_churn.csv is saved locally, read it
     if os.path.isfile(filename):
         return pd.read_csv(filename)
     
-    # if file not available locally, acquire data from SQL database
+    # if telco_churn.csv is not saved locally, acquire data from codeup MySQL database
     # and write it as csv locally for future use
     else:
         # read the SQL query into a dataframe
