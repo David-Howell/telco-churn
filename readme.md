@@ -27,17 +27,17 @@ ___
 ## <a name="project_description"></a>Project Description:
 [[Back to top](#top)]
 #### We will explore the Telco Dataset for a greater understanding of the attributes and drivers of customer churn.
-    - We will ask questions of the data to further our understanding
-    - The resulting charts and statistical tests will help answer our questions
-    - We will split our data to avoid overfitting in modeling and avoid data poisoning
-    - Machine Learning models will be constructed and fit, statistically validated, and tested
-    - A report will be generated for a 5-minute presentation to management, to include:
-        - The work done
-        - Why certain lines were followed
-        - The Goals of the exploration and experiements
-        - Fingings
-        - Methodologies
-        - Conclusions / Recomendations
+- We will ask questions of the data to further our understanding
+- The resulting charts and statistical tests will help answer our questions
+- We will split our data to avoid overfitting in modeling and avoid data poisoning
+- Machine Learning models will be constructed and fit, statistically validated, and tested
+- A report will be generated for a 5-minute presentation to management, to include:
+    - The work done
+    - Why certain lines were followed
+    - The Goals of the exploration and experiements
+    - Fingings
+    - Methodologies
+    - Conclusions / Recomendations
 ***
 ## <a name="planning"></a>Project Planning: 
 [[Back to top](#top)]
@@ -51,14 +51,14 @@ ___
 
 
 ### Target variable
-
+#### - Churn
 
 ### Need to haves (Deliverables):
-    - A model that will predict churn with a better accuracy than baseline
+- A model that will predict churn with a better accuracy than baseline
 
 
 ### Nice to haves (With more time):
-    - Segmentation of customers into groups with targeted strategies to reduce churn within different segments
+- Segmentation of customers into groups with targeted strategies to reduce churn within different segments
 
 
 ***
