@@ -5,7 +5,7 @@ by: David Howell
 
 <p>
   <a href="https://github.com/David-Howell/telco-churn" target="_blank">
-    <img alt="David" src="https://github.com/David-Howell/telco-churn/blob/main/IMG_3682.jpg" />
+    <img alt="David Howell seen here addressing the Texas Supreme Court" src="https://github.com/David-Howell/telco-churn/blob/main/IMG_3682.jpg" />
   </a>
 </p>
 
@@ -35,9 +35,9 @@ ___
     - The work done
     - Why certain lines were followed
     - The Goals of the exploration and experiements
-    - Fingings
+    - Findings
     - Methodologies
-    - Conclusions / Recomendations
+    - Conclusions / Recommendations
 ***
 ## <a name="planning"></a>Project Planning: 
 [[Back to top](#top)]
@@ -53,8 +53,8 @@ ___
 - Preparation:
     - Initial understanding of the form and format of the data fields, and find the target variable
     - Clean fields for ease of data manipulation and exploration, 
-    i.e. understand categorical vs. numerical data, numbers as int or float, etc.
-    - Split the data into training, validation, and testing subsets (60%,20%,20%)
+    i.e. understand categorical vs. numerical data, numbers as `int` or `float`, etc.
+    - Split the data into training, validation, and testing subsets (60%, 20%, 20%)
     - A `prepare.py` file will be created with functions to recreate this process
     - Python tools will include:
         - `pandas` will be used to handle nulls, outliers, normalizing text, changing data types
@@ -70,7 +70,7 @@ ___
     - Final Features will be scaled and/or encoded for modeling
     
 - Modeling:
-    - Identify regression, classification, and/or other algorithms that adress the data relationships
+    - Identify regression, classification, and/or other algorithms that address the data relationships
     - Create, explore, and evaluate Machine Learning models that predict the target
         - Build the thing
         - Fit(train) the thing
