@@ -86,7 +86,10 @@ ___
     - A conclusion will be derived and a recomendation(s) will be suggested
         
 ### Hypothesis
-
+- The Distributions of Gender and Churn are different.
+  - FALSE
+- The Distributions of Senior citizens and non-Seniors are different.
+  - TRUE
 
 
 ### Target variable
@@ -94,6 +97,9 @@ ___
 
 ### Need to haves (Deliverables):
 - A model that will predict churn with a better accuracy than baseline
+  - At around 80% we are well above the Baseline of 73%
+  - Additionally, (and More importantly):
+    - Baseline Recall was 0.00% and our model is at around 66% for out-of-sample data!!
 
 
 ### Nice to haves (With more time):
@@ -105,7 +111,8 @@ ___
 ## <a name="findings"></a>Key Findings:
 [[Back to top](#top)]
 
-
+- Fiber customers churn way more than any other Internet Service group
+- E-Checks are not bringing in the $$$
 
 
 ***
@@ -134,6 +141,11 @@ ___
 
 ### Wrangle steps: 
 
+- Get data from MySQL
+- Cache that!
+- Fix Nulls
+- Get data into numeric formats
+- Encode appropriate fields
 
 *********************
 
@@ -147,55 +159,48 @@ ___
 
 ### Takeaways from exploration:
 
+- Things that aren't related to churn...
+    - gender - they churn evenly
+      - Can probably drop this field and not use it as a feature
+    - phone servie
+      - Everyone has phone service except a portion of the DSL customers
+    - multiple lines
+      - Multiple lines seems to line up with the DSL customers that do have phone
+  - Things that don't matter much...
+    - senior citizens - don't make up a great deal of customers
+    - Streaming_tv
+    - Streaming_movies
+  - Things that seem to have a relationship to churn...
+    - partner - no partner has more churn
+    - dependents - no dependents has more churn
+    - Fiber - DSL - No ISP 42%/19%/8% Churn
+    - online backup      - not having leads to churn
+    - online security    - not having leads to churn
+    - device protection  - not having leads to churn
+    - tech support       - not having leads to churn
+    - Electronic check seems to be the LARGEST indicator of churn
+      - 45% of customers using E-checks churn
 
 ***
 
 ## <a name="stats"></a>Statistical Analysis
 [[Back to top](#top)]
 
-### Stats Test 1: ANOVA Test: One Way
 
-Analysis of variance, or ANOVA, is a statistical method that separates observed variance data into different components to use for additional tests. 
+### Stats Tests : T-Tests: Two Sample, Two Tailed Tests
 
-A one-way ANOVA is used for three or more groups of data, to gain information about the relationship between the dependent and independent variables: in this case our clusters vs. the log_error, respectively.
-
-To run the ANOVA test in Python use the following import: \
-<span style="color:green">from</span> scipy.stats <span style="color:green">import</span> f_oneway
-
-- f_oneway, in this case, takes in the individual clusters and returns the f-statistic, f, and the p_value, p:
-    - the f-statistic is simply a ratio of two variances. 
-    - The p_vlaue is the probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct
-
-#### Hypothesis:
-- The null hypothesis (H<sub>0</sub>) is
-- The alternate hypothesis (H<sub>1</sub>) is 
-
-#### Confidence level and alpha value:
-- I established a 95% confidence level
-- alpha = 1 - confidence, therefore alpha is 0.05
-
-#### Results:
-
-
-#### Summary:
-
-
-### Stats Test 2: T-Test: One Sample, Two Tailed
-- A T-test allows me to compare a categorical and a continuous variable by comparing the mean of the continuous variable by subgroups based on the categorical variable
 - The t-test returns the t-statistic and the p-value:
     - t-statistic: 
-        - Is the ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. It is used in hypothesis testing via Student's t-test. 
+        - Is the ratio of the departure of the estimated value of a parameter from its hypothesized value to its standard error. It is used in hypothesis testing via Gender, and Senior vs Churn t-test. 
         - It is used in a t-test to determine if you should support or reject the null hypothesis
         - t-statistic of 0 = H<sub>0</sub>
     -  - the p-value:
         - The probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct
-- We wanted to compare the individual clusters to the total population. 
-    - Cluster1 to the mean of ALL clusters
-    - Cluster2 to the mean of ALL clusters, etc.
+- We wanted to compare the individual clusters to each other. 
 
 #### Hypothesis:
-- The null hypothesis (H<sub>0</sub>) is 
-- The alternate hypothesis (H<sub>1</sub>) is 
+- The null hypothesis (H<sub>0</sub>) is They are the same
+- The alternate hypothesis (H<sub>1</sub>) is They are different
 
 #### Confidence level and alpha value:
 - I established a 95% confidence level
@@ -203,10 +208,11 @@ To run the ANOVA test in Python use the following import: \
 
 
 #### Results:
-
+- Gender: They're the same
+- Seniors: They're different
 
 #### Summary:
-
+These let us decide to drop gender, and keep seniors
 ***
 
 ## <a name="model"></a>Modeling:
@@ -214,29 +220,49 @@ To run the ANOVA test in Python use the following import: \
 
 ### Model Preparation:
 
+- As above, so below
+
 ### Baseline
     
-- Baseline Results: 
+- Baseline Results: 73% Accuracy and 0.00% Recall
     
 
 - Selected features to input into models:
-    - features = []
+    - features = [['senior',
+ 'partner',
+ 'dependents',
+ 'tenure',
+ 'e_bill',
+ 'monthly_charges',
+ 'total_charges',
+ 'DSL',
+ 'Fiber',
+ 'one_year',
+ 'two_year',
+ 'bank_transfer',
+ 'cc',
+ 'e_check',
+ 'add_ons']]
 
 ***
 
 ### Models and R<sup>2</sup> Values:
 - Will run the following regression models:
-
+  - Decision Tree
+  - Random Forest
+  - K Nearest Neighbors
+  - Logistic Regression
     
 
 - Other indicators of model performance with breif defiition and why it's important:
 
+  - Accuracy: Overall how are we doing with our predictions
+  - Recall: How many misses are we getting and can we minimize that
     
-    
-#### Model 1: Linear Regression (OLS)
+#### Model 1: Linear Regression (LibLinear with L1 penalty)
 
 
-- Model 1 results:
+- Model 1 results: Accuracy around 80% and Recall around 66%
 
 
 
