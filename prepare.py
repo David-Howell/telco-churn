@@ -68,8 +68,34 @@ def prep_telco():
     print(df.info())
     return df
 
-
 def split_data(df, strat_by, rand_st=123):
+    '''
+    Takes in: a `pd.DataFrame()`
+          and a `column` to stratify by  ;dtype(str)
+          and a `random state`           ;if no random state is specifed defaults to [123]
+          
+      prints the `.shape` of the `DataFrame` taken in and the
+      `Train`, `Validate`, and `Test` `DataFrames` returned
+      `return: train, validate, test`    ;subset `DataFframes`
+    '''
+#     train test split giving 20% to the testing data set and stratifying by the Parameter field: strat_by
+    train, test = train_test_split(df, test_size=.2, 
+                               random_state=rand_st, stratify=df[strat_by])
+#     train test split to break out a validation set the same size as the test set
+    train, validate = train_test_split(train, test_size=.25, 
+                 random_state=rand_st, stratify=train[strat_by])
+#     print the name and shape of the resultant DataFrames
+    print(f'Prepared df: {df.shape}')
+    print()
+    print(f'Train: {train.shape}')
+    print(f'Validate: {validate.shape}')
+    print(f'Test: {test.shape}')
+
+#     returns the resulting DataFrames in order of train, validate, test 
+    return train, validate, test
+
+
+def split_data_model(df, strat_by, rand_st=123):
     '''
     Takes in: a `pd.DataFrame()`
           and a `column` to stratify by  ;dtype(str)

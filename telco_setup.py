@@ -15,7 +15,16 @@ from sklearn.model_selection import train_test_split
 import acquire
 import prepare
 from sklearn.metrics import accuracy_score, precision_score, recall_score, classification_report
-import lux
+# grab Decision Tree Classifier and some helping friends from sklearn.tree
+from sklearn.tree import DecisionTreeClassifier, plot_tree, export_text
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+# ignore warnings
+import warnings
+warnings.filterwarnings("ignore")
+from modeling import confusion, random_forest_models
     ''')
 
 def get_db_url(schema):
