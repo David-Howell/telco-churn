@@ -1,3 +1,35 @@
+import prepare
+from scipy import stats
+import pandas as pd
+from sklearn.metrics import accuracy_score, precision_score, recall_score, classification_report
+# grab Decision Tree Classifier and some helping friends from sklearn.tree
+from sklearn.tree import DecisionTreeClassifier, plot_tree, export_text
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+
+
+df = prepare.fix_nulls()
+df = prepare.prep_telco_1(df)
+train, validate, test = prepare.split_data_model(df, 'churn1')
+
+X_cols = train.columns.to_list()
+X_cols.remove('churn1')
+y_col = 'churn1'
+
+X_train, y_train = train[X_cols], train[y_col]
+X_validate, y_validate = validate[X_cols], validate[y_col]
+X_test, y_test = test[X_cols], test[y_col]
+
+X_train_fiber = X_train[X_train.Fiber == 1]
+X_train_fiber
+
+y_train_fiber = y_train
+y_train_fiber
+
+y_train_fiber.drop(index=X_train[X_train.Fiber != 1].index.tolist(), inplace=True)
+
 def confusion(TN, TP, FN, FP):
     acc = (TP+TN)/(TP+TN+FP+FN)
     pre = (TP/(TP+FP))
