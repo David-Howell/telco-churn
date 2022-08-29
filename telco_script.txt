@@ -1,0 +1,102 @@
+Hi there, I'm David Howell, Junior Data Scientist for Telco Comunications.
+
+Thank you for joining me today to discuss:
+
+Solving our customer Churn
+
+0:10 min
+-----------------------------
+
+Looking at our Agenda, today we will:
+
+look at the main drivers of churn,
+
+determine what questions should still be asked,
+
+and perhaps most importantly, ackowledge that price does NOT drive churn
+
+:24 sec
+------------------------------
+
+The executive summary:
+
+let's fix 3 things,
+        - The E-Check system
+        - Our fiber optics plan
+        - and the knee jerk reaction to lower prices
+        
+Recomendations will be to:
+        - Push Credit Card and Bank Drafts as the prefered type of payment
+        - Separate Phone from Fiber giving people a choice around whether to keep a landline
+        and
+        - Let's raise the price of Fiber and include add on services like online security and online backup to help with retention
+
+0:55 min
+-------------------------------
+
+We'll go into some of our findings now.
+
+Out of all customers that churn over half of them are using Electronic Checks to make their payment
+
+This is the only online option that isn't automatic.
+
+We should look into whether people are having problems using it
+
+if people are just forgetting to pay,
+
+or if there's something we can do to automate the process
+
+1:17 min
+--------------------------------
+
+An even bigger issue, is that nearly 70% of everyone that churns is using Fiber:
+
+Is there something horribly wrong with the service? Outages or overall Speed just isn't there?
+
+We do see more Fiber customers stay when they have online backup and online security, maybe we should add those options as standard.
+
+1:38 min
+---------------------------------
+
+And now the big shocker:
+
+The people who churn are paying less per month than the people who stay
+
+Now we can understand why an early analysis looks like people who churn are paying more, because fiber is the most expensive internet option, and most people that churn are fiber customers
+
+knowing this, the last thing we want to do to mitigate churn is to lower prices... Don't do it!
+
+2:05 min
+---------------------------------
+
+looking at the modeling, we tested different types of classification algorithms and Logistic regression won out.
+
+Our baseline acurracy was a respectable 74%, because we know that's how many customers have stayed
+
+but if we want to look at, and catch, who is going to churn, our baseline turns up a big zero
+
+our best performing model showed a 6 point improvement in overall accuracy
+
+and more importantly, with a 66% recall, we can now catch 66 of every 100 people that will churn
+
+2:41 min
+---------------------------------
+
+In conclusion, we now have better direction to find and stop churn
+
+Recomendations are as follows:
+
+Let's find out more about our Fiber customers, maybe offering free trials on backup and security coud help
+
+We need to find out what's gumming up the E-check system, in the meantime let's try to get as many people off of that and switched to an automatic payment, like Credit cards or bank drafts
+
+and whatever we do, DO NOT lower prices!
+
+When we break things down, that is not a driver of churn and we would be shooting ourselves in the foot
+
+3:21 min
+-----------------------------------
+
+Thank you for your time, and let's go save telco from churn!
+
+3:27 min TOTAL
